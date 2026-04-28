@@ -22,36 +22,7 @@ Most developers monitor their PC through software dashboards — a floating widg
 
 ## System Architecture
 
-```
-┌─────────────────────────────────────────────────────────────┐
-│  WINDOWS HOST                                               │
-│                                                             │
-│  ┌──────────────┐      ┌──────────────────────────────────┐ │
-│  │   GPU-Z      │─────▶│   PCHealthMonitor.py             │ │
-│  │  gpu_log.txt │      │                                  │ │
-│  │  (CSV tail)  │      │  ├─ psutil → CPU / RAM / Disk   │ │
-│  └──────────────┘      │  ├─ GPU-Z log parser → GPU data │ │
-│                        │  └─ Serial TX  @  9600 baud     │ │
-│  ┌──────────────┐      └──────────────┬───────────────────┘ │
-│  │   psutil     │─────▶               │                     │
-│  │  CPU·RAM·    │      USB · CH340 · CDC-ACM               │
-│  │  Disk I/O    │                     │                     │
-│  └──────────────┘      ┌──────────────▼───────────────────┐ │
-│                        │   Arduino Nano  (ATmega328P)     │ │
-└────────────────────────│   Serial RX → Key-prefix parser  │─┘
-                         │   I²C Master  ·  A4 SDA · A5 SCL│
-                         └──────────────┬───────────────────┘
-                                        │  I²C @ 0x27
-                         ┌──────────────▼───────────────────┐
-                         │       24×4 I²C LCD               │
-                         │  CPU: XX%      GPU: XX%          │
-                         │  DISK: XX%     RAM: XX%          │
-                         │  cTEMP: XX°C   gTEMP: XX°C       │
-                         │  gPWR: XXXW                      │
-                         └──────────────────────────────────┘
-```
-
----
+![System Architecture](assets/architecture.png)
 
 ## Engineering Deep Dive — Multi-Source Sensor Fusion
 
