@@ -1,0 +1,7 @@
+psutil
+pyserial
+pystray
+Pillow
+pygetwindow
+winshell
+pywin32
