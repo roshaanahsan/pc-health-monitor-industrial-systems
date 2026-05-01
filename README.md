@@ -24,6 +24,11 @@ Most developers monitor their PC through software dashboards — a floating widg
 
 ![System Architecture](assets/architecture.png)
 
+## Gallery
+
+![Tech Stack](assets/tech-stack.png)
+![Physical Hardware](assets/product-photo.png)
+
 ## Engineering Deep Dive — Multi-Source Sensor Fusion
 
 ### The Problem: GPU metrics are locked on Windows
@@ -168,9 +173,13 @@ For a plug-and-play USB deployment, place the compiled `PCHealthMonitor.exe` alo
 
 ## Project Context
 
-Built in late 2024 as an exploration of hardware-software co-design on constrained embedded systems. The goal: a portable, no-install monitoring solution that works on any Windows machine — plug in the USB, metrics appear on physical hardware within 10 seconds.
+Built in late 2024 — an exploration of hardware-software co-design on
+constrained embedded systems. Goal: a portable, zero-install monitoring
+solution that works on any Windows machine. Plug in the USB, metrics
+appear on physical hardware within 10 seconds.
 
-Published in 2025 as part of documenting my systems engineering portfolio.
+Part of my systems engineering portfolio documenting complete silicon
+to cloud builds.
 
 ---
 
